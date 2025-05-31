@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${budget.id == null} ? 'Add Budget' : 'Edit Budget'">Budget Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h2 th:text="${budget.id == null} ? 'Add Budget' : 'Edit Budget'">Budget Form</h2>
+
+<form th:action="@{/budgets}" th:object="${budget}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>Month:
+        <input type="text" th:field="*{month}" placeholder="YYYY-MM" required />
+    </label><br/>
+
+    <label>Amount:
+        <input type="number" step="0.01" th:field="*{amount}" required />
+    </label><br/>
+
+    <label>User ID:
+        <input type="number" th:field="*{user.userId}" />
+    </label><br/>
+
+    <button type="submit">Save</button>
+</form>
+
+<a th:href="@{/budgets}">Back to Budget List</a>
+</body>
+</html>
+

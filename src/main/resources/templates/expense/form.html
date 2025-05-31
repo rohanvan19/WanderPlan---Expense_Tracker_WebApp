@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<body>
+<h2 th:text="${expense.id == null} ? 'Add Expense' : 'Edit Expense'"></h2>
+<form th:action="@{/expenses/save}" th:object="${expense}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label>Category: <input th:field="*{category}" /></label><br/>
+    <label>Amount: <input type="number" th:field="*{amount}" /></label><br/>
+    <label>Description: <input th:field="*{description}" /></label><br/>
+    <label>Date: <input type="date" th:field="*{expenseDate}" /></label><br/>
+    <label>User ID: <input th:field="*{user.userId}" /></label><br/>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Budgets List</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h2>Budgets</h2>
+<a th:href="@{/budgets/new}">Add Budget</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Month</th>
+        <th>Amount</th>
+        <th>User</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="budget : ${budgets}">
+        <td th:text="${budget.id}"></td>
+        <td th:text="${budget.month}"></td>
+        <td th:text="${budget.amount}"></td>
+        <td th:text="${budget.user != null ? budget.user.name : 'N/A'}"></td>
+        <td>
+            <a th:href="@{/budgets/edit/{id}(id=${budget.id})}">Edit</a> |
+            <a th:href="@{/budgets/delete/{id}(id=${budget.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderPlan</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a th:href="@{/budget}">Budgets</a></li>
+            <li><a th:href="@{/trip}">Trips</a></li>
+            <li><a th:href="@{/expense}">Expenses</a></li>
+            <li><a th:href="@{/destination}">Destinations</a></li>
+            <li><a th:href="@{/user}">Users</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h1>Welcome to WanderPlan!</h1>
+        <p>Plan your trips, budgets, expenses, and more.</p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 WanderPlan. All rights reserved.</p>
+</footer>
+</body>
+</html>
