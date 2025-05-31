@@ -1,11 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
 <body>
 <h2>Expenses</h2>
 <a th:href="@{/expenses/new}">Add Expense</a>
 <table>
     <thead>
-    <tr><th>ID</th><th>Category</th><th>Amount</th><th>Description</th><th>Date</th><th>User</th><th>Actions</th></tr>
+    <tr>
+        <th>ID</th>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>User</th>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
     <tr th:each="expense : ${expenses}">
@@ -14,7 +27,8 @@
         <td th:text="${expense.amount}"></td>
         <td th:text="${expense.description}"></td>
         <td th:text="${expense.expenseDate}"></td>
-        <td th:text="${expense.user.name}"></td>
+<!--        <td th:text="${expense.userName}"></td>-->
+        <td th:text="${expense.userId}"></td>
         <td>
             <a th:href="@{/expenses/edit/{id}(id=${expense.id})}">Edit</a> |
             <a th:href="@{/expenses/delete/{id}(id=${expense.id})}">Delete</a>

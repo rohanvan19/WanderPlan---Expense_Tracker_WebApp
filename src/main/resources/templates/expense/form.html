@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${expense.id == null} ? 'Add Expense' : 'Edit Expense'">Expense Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
 <body>
-<h2 th:text="${expense.id == null} ? 'Add Expense' : 'Edit Expense'"></h2>
-<form th:action="@{/expenses/save}" th:object="${expense}" method="post">
+<h2 th:text="${expense.id == null} ? 'Add Expense' : 'Edit Expense'">Expense Form</h2>
+
+<form th:action="${expense.id == null} ? @{/expenses} : @{/expenses/update/{id}(id=${expense.id})}" th:object="${expense}" method="post">
     <input type="hidden" th:field="*{id}" />
-    <label>Category: <input th:field="*{category}" /></label><br/>
-    <label>Amount: <input type="number" th:field="*{amount}" /></label><br/>
-    <label>Description: <input th:field="*{description}" /></label><br/>
-    <label>Date: <input type="date" th:field="*{expenseDate}" /></label><br/>
-    <label>User ID: <input th:field="*{user.userId}" /></label><br/>
+
+    <label>Category:
+        <input type="text" th:field="*{category}" required />
+    </label><br/>
+
+    <label>Amount:
+        <input type="number" th:field="*{amount}" required />
+    </label><br/>
+
+    <label>Description:
+        <input type="text" th:field="*{description}" />
+    </label><br/>
+
+    <label>Date:
+        <input type="date" th:field="*{expenseDate}" required />
+    </label><br/>
+
+    <label>User ID:
+        <input type="number" th:field="*{userId}" required />
+    </label><br/>
+
     <button type="submit">Save</button>
 </form>
+
+<a th:href="@{/expenses}">Back to Expenses</a>
 </body>
 </html>
