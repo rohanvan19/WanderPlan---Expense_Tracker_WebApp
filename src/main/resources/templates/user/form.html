@@ -1,12 +1,54 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${user.userId == null} ? 'Add User' : 'Edit User'">User Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
 <body>
-<h2 th:text="${user.userId == null} ? 'Add User' : 'Edit User'"></h2>
-<form th:action="@{/users/save}" th:object="${user}" method="post">
-    <input type="hidden" th:field="*{userId}" />
-    <label>Name: <input th:field="*{name}" /></label><br/>
-    <label>Email: <input th:field="*{email}" /></label><br/>
+<h2 th:text="${user.userId == null} ? 'Add User' : 'Edit User'">User Form</h2>
+
+<!-- CREATE FORM -->
+<form th:if="${user.userId == null}"
+      th:action="@{/users}"
+      th:object="${user}"
+      method="post">
+
+    <label>Name:
+        <input type="text" th:field="*{name}" required />
+    </label><br/>
+
+    <label>Email:
+        <input type="email" th:field="*{email}" required />
+    </label><br/>
+
+    <label>Password:
+        <input type="password" th:field="*{password}" th:placeholder="${user.userId == null} ? '' : 'Leave blank to keep current password'" />
+    </label><br/>
+
     <button type="submit">Save</button>
 </form>
+
+<!-- UPDATE FORM -->
+<form th:if="${user.userId != null}"
+      th:action="@{/users/update/{id}(id=${user.userId})}"
+      th:object="${user}"
+      method="post">
+
+    <input type="hidden" th:field="*{userId}" />
+
+    <label>Name:
+        <input type="text" th:field="*{name}" required />
+    </label><br/>
+
+    <label>Email:
+        <input type="email" th:field="*{email}" required />
+    </label><br/>
+
+    <button type="submit">Update</button>
+</form>
+
+<a th:href="@{/users}">Back to Users</a>
 </body>
 </html>
+
