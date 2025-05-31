@@ -1,11 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trips</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
 <body>
 <h2>Trips</h2>
+
 <a th:href="@{/trips/new}">Add Trip</a>
+
 <table>
     <thead>
-    <tr><th>ID</th><th>Destination</th><th>Start</th><th>End</th><th>User</th><th>Actions</th></tr>
+    <tr>
+        <th>ID</th>
+        <th>Destination</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>User</th>
+        <th>Actions</th>
+    </tr>
     </thead>
     <tbody>
     <tr th:each="trip : ${trips}">
@@ -13,7 +27,7 @@
         <td th:text="${trip.destination}"></td>
         <td th:text="${trip.startDate}"></td>
         <td th:text="${trip.endDate}"></td>
-        <td th:text="${trip.user.name}"></td>
+        <td th:text="${trip.userId}"></td>
         <td>
             <a th:href="@{/trips/edit/{id}(id=${trip.id})}">Edit</a> |
             <a th:href="@{/trips/delete/{id}(id=${trip.id})}">Delete</a>
@@ -21,3 +35,5 @@
     </tr>
     </tbody>
 </table>
+</body>
+</html>

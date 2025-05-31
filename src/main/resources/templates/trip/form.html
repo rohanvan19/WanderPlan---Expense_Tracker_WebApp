@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: content">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${trip.id == null} ? 'Add Trip' : 'Edit Trip'">Trip Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
 <body>
-<form th:action="@{/trips/save}" th:object="${trip}" method="post">
-    <input type="hidden" th:field="*{id}"/>
-    <label>Destination: <input th:field="*{destination}" /></label><br/>
-    <label>Start Date: <input type="date" th:field="*{startDate}" /></label><br/>
-    <label>End Date: <input type="date" th:field="*{endDate}" /></label><br/>
-    <label>User ID: <input th:field="*{user.userId}" /></label><br/>
+<h2 th:text="${trip.id == null} ? 'Add Trip' : 'Edit Trip'">Trip Form</h2>
+
+<form th:action="${trip.id == null} ? @{/trips} : @{/trips/update/{id}(id=${trip.id})}" th:object="${trip}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>Destination:
+        <input th:field="*{destination}" required />
+    </label><br/>
+
+    <label>Start Date:
+        <input type="date" th:field="*{startDate}" required />
+    </label><br/>
+
+    <label>End Date:
+        <input type="date" th:field="*{endDate}" required />
+    </label><br/>
+
+    <label>User ID:
+        <input type="number" th:field="*{userId}" required />
+    </label><br/>
+
     <button type="submit">Save</button>
 </form>
+
+<a th:href="@{/trips}">Back to Trips</a>
 </body>
 </html>
