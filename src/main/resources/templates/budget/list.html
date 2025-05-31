@@ -6,7 +6,10 @@
 </head>
 <body>
 <h2>Budgets</h2>
-<a th:href="@{/budgets/new}">Add Budget</a>
+
+<!-- Styled Add Button -->
+<a th:href="@{/budgets/new}" class="btn">➕ Add Budget</a>
+
 <table>
     <thead>
     <tr>
@@ -24,8 +27,8 @@
         <td th:text="${budget.amount}"></td>
         <td th:text="${budget.user != null ? budget.user.name : 'N/A'}"></td>
         <td>
-            <a th:href="@{/budgets/edit/{id}(id=${budget.id})}">Edit</a> |
-            <a th:href="@{/budgets/delete/{id}(id=${budget.id})}">Delete</a>
+            <a th:href="@{/budgets/edit/{id}(id=${budget.id})}" class="btn">✏️ Edit</a>
+            <a th:href="@{/budgets/delete/{id}(id=${budget.id})}" class="btn" style="background-color: #e74c3c;">🗑️ Delete</a>
         </td>
     </tr>
     </tbody>

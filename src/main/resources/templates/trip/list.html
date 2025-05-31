@@ -8,7 +8,7 @@
 <body>
 <h2>Trips</h2>
 
-<a th:href="@{/trips/new}">Add Trip</a>
+<a th:href="@{/trips/new}" class="btn">Add Trip</a>
 
 <table>
     <thead>
@@ -29,8 +29,8 @@
         <td th:text="${trip.endDate}"></td>
         <td th:text="${trip.userId}"></td>
         <td>
-            <a th:href="@{/trips/edit/{id}(id=${trip.id})}">Edit</a> |
-            <a th:href="@{/trips/delete/{id}(id=${trip.id})}">Delete</a>
+            <a th:href="@{/trips/edit/{id}(id=${trip.id})}" class="btn">✏️ Edit</a> |
+            <a th:href="@{/trips/delete/{id}(id=${trip.id})}" class="btn" style="background-color: #e74c3c;">🗑️ Delete</a>
         </td>
     </tr>
     </tbody>

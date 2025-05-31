@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
     <title>Destinations List</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
 <h2>Destinations</h2>
-<a th:href="@{/destinations/new}">Add Destination</a>
+<a th:href="@{/destinations/new}" class="btn">➕ Add Destination</a>
 <table>
     <thead>
     <tr>
@@ -25,8 +24,8 @@
         <td th:text="${destination.country}"></td>
         <td th:text="${destination.user != null ? destination.user.name : 'N/A'}"></td>
         <td>
-            <a th:href="@{/destinations/edit/{id}(id=${destination.id})}">Edit</a> |
-            <a th:href="@{/destinations/delete/{id}(id=${destination.id})}">Delete</a>
+            <a th:href="@{/destinations/edit/{id}(id=${destination.id})}" class="btn">✏️ Edit</a> |
+            <a th:href="@{/destinations/delete/{id}(id=${destination.id})}" class="btn" style="background-color: #e74c3c;">🗑️ Delete</a>
         </td>
     </tr>
     </tbody>
