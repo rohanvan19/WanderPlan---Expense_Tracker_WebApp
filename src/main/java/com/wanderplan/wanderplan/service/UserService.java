@@ -28,7 +28,7 @@ public class UserService {
     }
 
     public List<User> getAllUsersOrderedById() {
-        return userRepository.findAll(Sort.by("userId"));
+        return userRepository.findAll(Sort.by(Sort.Direction.ASC, "userId"));
     }
 
     public void deleteUser(Long id) {
