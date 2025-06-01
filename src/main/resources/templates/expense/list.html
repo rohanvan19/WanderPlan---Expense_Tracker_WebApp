@@ -27,8 +27,7 @@
         <td th:text="${expense.amount}"></td>
         <td th:text="${expense.description}"></td>
         <td th:text="${expense.expenseDate}"></td>
-<!--        <td th:text="${expense.userName}"></td>-->
-        <td th:text="${expense.userId}"></td>
+        <td th:text="${expense.userName}"></td>
         <td>
             <a th:href="@{/expenses/edit/{id}(id=${expense.id})}" class="btn">✏️ Edit</a> |
             <a th:href="@{/expenses/delete/{id}(id=${expense.id})}" class="btn" style="background-color: #e74c3c;">🗑️ Delete</a>

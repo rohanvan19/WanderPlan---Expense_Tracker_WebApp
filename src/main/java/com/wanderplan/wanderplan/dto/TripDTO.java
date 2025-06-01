@@ -8,16 +8,18 @@ public class TripDTO {
     private LocalDate startDate;
     private LocalDate endDate;
     private Long userId;  // just userId to avoid full User serialization
+    private String userName; // 🌟 This is the new field
 
     // Constructors
     public TripDTO() {}
 
-    public TripDTO(Long id, String destination, LocalDate startDate, LocalDate endDate, Long userId) {
+    public TripDTO(Long id, String destination, LocalDate startDate, LocalDate endDate, Long userId, String userName) {
         this.id = id;
         this.destination = destination;
         this.startDate = startDate;
         this.endDate = endDate;
         this.userId = userId;
+        this.userName = userName;
     }
 
     // Getters and setters
@@ -35,4 +37,7 @@ public class TripDTO {
 
     public Long getUserId() { return userId; }
     public void setUserId(Long userId) { this.userId = userId; }
+
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
 }

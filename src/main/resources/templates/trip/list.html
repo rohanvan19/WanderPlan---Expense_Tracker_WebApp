@@ -27,7 +27,7 @@
         <td th:text="${trip.destination}"></td>
         <td th:text="${trip.startDate}"></td>
         <td th:text="${trip.endDate}"></td>
-        <td th:text="${trip.userId}"></td>
+        <td th:text="${trip.userName != null ? trip.userName : 'N/A'}"></td>
         <td>
             <a th:href="@{/trips/edit/{id}(id=${trip.id})}" class="btn">✏️ Edit</a> |
             <a th:href="@{/trips/delete/{id}(id=${trip.id})}" class="btn" style="background-color: #e74c3c;">🗑️ Delete</a>

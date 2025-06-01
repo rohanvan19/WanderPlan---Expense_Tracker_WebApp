@@ -29,13 +29,15 @@ public class TripService {
         if (trip == null) return null;
 
         Long userId = trip.getUser() != null ? trip.getUser().getUserId() : null;
+        String userName = trip.getUser() != null ? trip.getUser().getName() : "Unknown";
 
         return new TripDTO(
                 trip.getId(),
                 trip.getDestination(),
                 trip.getStartDate(),
                 trip.getEndDate(),
-                userId
+                userId,
+                userName
         );
     }
 

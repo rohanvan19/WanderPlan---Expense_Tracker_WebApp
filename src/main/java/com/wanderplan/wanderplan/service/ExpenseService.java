@@ -61,7 +61,7 @@ public class ExpenseService {
         dto.setAmount(expense.getAmount());
         dto.setDescription(expense.getDescription());
         dto.setExpenseDate(expense.getExpenseDate());
-        dto.setUserId(expense.getUser().getUserId());
+        dto.setUserName(expense.getUser().getName());
         return dto;
     }
 
