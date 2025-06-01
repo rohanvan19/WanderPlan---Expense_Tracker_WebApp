@@ -37,4 +37,8 @@ public class BudgetService {
     public void deleteBudget(Long id) {
         budgetRepository.deleteById(id);
     }
+
+    public long countBudgets() {
+        return budgetRepository.count();
+    }
 }

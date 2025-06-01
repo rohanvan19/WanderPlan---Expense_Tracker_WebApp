@@ -1,10 +1,95 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>WanderPlan</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
+<!--</head>-->
+<!--<body>-->
+<!--<header>-->
+<!--    <nav>-->
+<!--        <ul>-->
+<!--            <li><a th:href="@{/users}">Users</a></li>-->
+<!--            <li><a th:href="@{/budgets}">Budgets</a></li>-->
+<!--            <li><a th:href="@{/trips}">Trips</a></li>-->
+<!--            <li><a th:href="@{/destinations}">Destinations</a></li>-->
+<!--            <li><a th:href="@{/expenses}">Expenses</a></li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</header>-->
+
+<!--<main>-->
+<!--    <section>-->
+<!--        <h1>Welcome to WanderPlan!</h1>-->
+<!--        <p>Plan your trips, budgets, expenses, and more.</p>-->
+<!--    </section>-->
+<!--</main>-->
+
+<!--<footer>-->
+<!--    <p>&copy; 2025 WanderPlan. All rights reserved.</p>-->
+<!--</footer>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WanderPlan</title>
+    <title>WanderPlan Dashboard</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        main {
+            padding: 2rem;
+            background: #f0f4f8; /* subtle light background to lift content */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(37, 117, 252, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(37, 117, 252, 0.5);
+        }
+
+        .card h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1;
+            letter-spacing: 1.2px;
+            color: white;
+            user-select: text; /* so user can copy numbers */
+        }
+
+        .card p {
+            margin-top: 0.7rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.85;
+            user-select: none;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -20,10 +105,25 @@
 </header>
 
 <main>
-    <section>
-        <h1>Welcome to WanderPlan!</h1>
-        <p>Plan your trips, budgets, expenses, and more.</p>
-    </section>
+    <h1>📊 WanderPlan Dashboard</h1>
+    <div class="dashboard">
+        <div class="card">
+            <h2 th:text="${tripCount}">0</h2>
+            <p>Total Trips Planned</p>
+        </div>
+        <div class="card">
+            <h2 th:text="${expenseTotal} + ' €'">0 €</h2>
+            <p>Total Expenses</p>
+        </div>
+        <div class="card">
+            <h2 th:text="${destinationCount}">0</h2>
+            <p>Destinations Added</p>
+        </div>
+        <div class="card">
+            <h2 th:text="${budgetCount}">0</h2>
+            <p>Budget Plans</p>
+        </div>
+    </div>
 </main>
 
 <footer>

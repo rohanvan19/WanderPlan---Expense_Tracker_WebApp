@@ -55,4 +55,8 @@ public class DestinationService {
     public void deleteDestination(Long id) {
         destinationRepository.deleteById(id);
     }
+
+    public long countDestinations() {
+        return destinationRepository.count();
+    }
 }
