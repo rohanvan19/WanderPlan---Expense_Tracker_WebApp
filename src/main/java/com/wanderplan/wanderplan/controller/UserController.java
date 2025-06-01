@@ -18,7 +18,7 @@ public class UserController {
 
     @GetMapping
     public String listUsers(Model model) {
-        List<User> users = userService.getAllUsers();
+        List<User> users = userService.getAllUsersOrderedById();
         model.addAttribute("users", users);
         return "user/list";
     }

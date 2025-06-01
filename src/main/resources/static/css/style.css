@@ -70,8 +70,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #1abc9c;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 /* Main Container */
@@ -110,25 +110,54 @@ h1, h2, h3, h4, h5, h6 {
 /* Forms */
 form {
     margin-top: 2em;
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3em 2.5em;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
-form input, form select, form textarea {
+/* Inputs, Selects, Textareas */
+form input,
+form select,
+form textarea {
     width: 100%;
-    padding: 1em;
+    padding: 1.25em 1.2em;
     margin-bottom: 1.5em;
-    border: 1px solid #ccc;
+    border: 1px solid #d1d9e6;
     border-radius: 10px;
-    font-size: 1em;
-    transition: all 0.3s ease;
+    font-size: 1.05rem;
+    font-family: 'Open Sans', sans-serif;
     background-color: #fdfdfd;
+    transition: border 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
+/* Focus State */
 form input:focus,
 form select:focus,
 form textarea:focus {
     outline: none;
     border-color: #2980b9;
-    box-shadow: 0 0 0 3px rgba(41, 128, 185, 0.2);
+    box-shadow: 0 0 0 4px rgba(41, 128, 185, 0.2);
+    background-color: #ffffff;
+}
+
+/* Optional: Slight hover effect */
+form input:hover,
+form select:hover,
+form textarea:hover {
+    border-color: #aaa;
+}
+
+/* Placeholder styling */
+form input::placeholder,
+form textarea::placeholder {
+    color: #999;
+    opacity: 0.8;
+    font-size: 0.95rem;
 }
 
 /* Button */
@@ -164,7 +193,7 @@ a.btn {
 }
 
 a.btn:hover {
-    background-color: #1abc9c;
+    background: #673ac8;
     color: #fff;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(26, 188, 156, 0.25);
@@ -174,14 +203,16 @@ a.btn:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 2em;
     border-radius: 12px;
     overflow: hidden;
+    font-size: 0.95rem;
+    margin-top: 1.5em;     /* slightly reduced margin */
 }
 
 table th, table td {
-    padding: 1em;
-    text-align: left;
+    padding: 0.6em 0.8em; /* smaller padding */
+    font-size: 0.95rem;   /* slightly smaller text */
+    text-align: center;
     border-bottom: 1px solid #ddd;
     font-family: 'Open Sans', sans-serif;
 }
@@ -191,7 +222,7 @@ table tr:nth-child(even) {
 }
 
 table th {
-    background-color: #073c60;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     font-weight: 700;
 }

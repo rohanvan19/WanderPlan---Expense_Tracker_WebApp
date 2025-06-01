@@ -8,6 +8,7 @@ import com.wanderplan.wanderplan.service.ExpenseService;
 import com.wanderplan.wanderplan.service.TripService;
 import com.wanderplan.wanderplan.service.DestinationService;
 import com.wanderplan.wanderplan.service.BudgetService;
+import com.wanderplan.wanderplan.service.UserService;
 import org.springframework.ui.Model;
 
 @Controller
@@ -21,6 +22,8 @@ public class HomeController {
     private DestinationService destinationService;
     @Autowired
     private BudgetService budgetService;
+    @Autowired
+    private UserService userService;
 
     // Map root URL "/" and "/index" to the index.html Thymeleaf template
 //    @GetMapping({"/"})
@@ -29,10 +32,11 @@ public class HomeController {
 //    }
     @GetMapping("/")
     public String dashboard(Model model) {
+        model.addAttribute("userCount", userService.countUsers());
         model.addAttribute("tripCount", tripService.countTrips());
         model.addAttribute("expenseTotal", expenseService.getTotalExpenses());
         model.addAttribute("destinationCount", destinationService.countDestinations());
-        model.addAttribute("budgetCount", budgetService.countBudgets());
+        model.addAttribute("budgetTotal", budgetService.totalBudgets());
         return "index"; // or "home" based on your file name
     }
 

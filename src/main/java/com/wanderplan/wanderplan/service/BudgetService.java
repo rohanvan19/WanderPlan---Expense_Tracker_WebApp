@@ -38,7 +38,10 @@ public class BudgetService {
         budgetRepository.deleteById(id);
     }
 
-    public long countBudgets() {
-        return budgetRepository.count();
+    public double totalBudgets() {
+        return budgetRepository.findAll()
+                .stream()
+                .mapToDouble(Budget::getAmount)
+                .sum();
     }
 }

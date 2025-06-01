@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.wanderplan.wanderplan.model.User;
 import com.wanderplan.wanderplan.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -26,8 +27,8 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<User> getAllUsersOrderedById() {
+        return userRepository.findAll(Sort.by("userId"));
     }
 
     public void deleteUser(Long id) {
@@ -54,5 +55,9 @@ public class UserService {
 
     public User getUserByIdOrNull(Long id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    public long countUsers() {
+        return userRepository.count();
     }
 }
