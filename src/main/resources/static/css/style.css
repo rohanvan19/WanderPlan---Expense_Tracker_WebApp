@@ -23,6 +23,22 @@ body {
     padding: 0 1rem;
 }
 
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700; /* Bold */
+    text-align: center;
+    font-size: 2rem;
+    margin: 1.5em 0 1em;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.3em;
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
 /* Header & Navigation */
 header {
     background: linear-gradient(90deg, #2c3e50, #34495e);
@@ -172,10 +188,50 @@ table tr:nth-child(even) {
 }
 
 table th {
-    background-color: #2980b9;
+    background-color: #073c60;
     color: white;
     font-weight: 700;
 }
+
+.nav-buttons {
+    display: flex;
+    justify-content: flex-start; /* align buttons to the left */
+    gap: 1rem; /* creates space between the buttons */
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 1em auto 2em;
+    padding: 0 1em;
+}
+
+.nav-buttons a {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.6em 1.2em;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.home-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.home-btn:hover {
+    background-color: #2ecc71;
+}
+
+.back-btn {
+    background-color: #34495e;
+    color: white;
+}
+
+.back-btn:hover {
+    background-color: #2c3e50;
+}
+
 
 /* Footer */
 footer {

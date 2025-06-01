@@ -12,7 +12,7 @@
     <input type="hidden" th:field="*{id}"/>
 
     <label>Month:
-        <input type="text" th:field="*{month}" placeholder="YYYY-MM" required />
+        <input type="date" th:field="*{month}" placeholder="DD-MM-YY" required />
     </label><br/>
 
     <label>Amount:
@@ -26,7 +26,11 @@
     <button type="submit">Save</button>
 </form>
 
-<a th:href="@{/budgets}">Back to Budget List</a>
+<div class="nav-buttons">
+    <a th:href="@{/budgets}" class="back-btn">← Back to Budgets</a>
+    <a th:href="@{/}" class="home-btn">🏠 Homepage</a>
+</div>
+
 </body>
 </html>
 

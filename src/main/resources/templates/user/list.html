@@ -6,17 +6,18 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-<h2>Users</h2>
-<a th:href="@{/users/new}" class="btn">Add User</a>
+<h2>👤 Users</h2>
+<a th:href="@{/users/new}" class="btn">➕ Add User</a>
 <table>
     <thead>
-    <tr><th>ID</th><th>Name</th><th>Email</th><th>Actions</th></tr>
+    <tr><th>ID</th><th>Name</th><th>Email</th><th>Password</th><th>Actions</th></tr>
     </thead>
     <tbody>
     <tr th:each="user : ${users}">
         <td th:text="${user.userId}"></td>
         <td th:text="${user.name}"></td>
         <td th:text="${user.email}"></td>
+        <td th:text="${user.password}"></td>
         <td>
             <a th:href="@{/users/edit/{id}(id=${user.userId})}" class="btn">✏️ Edit</a> |
             <a th:href="@{/users/delete/{id}(id=${user.userId})}" class="btn" style="background-color: #e74c3c;">🗑️ Delete</a>
@@ -24,5 +25,10 @@
     </tr>
     </tbody>
 </table>
+
+<div class="nav-buttons">
+    <a th:href="@{/}" class="home-btn">🏠 Homepage</a>
+</div>
+
 </body>
 </html>

@@ -74,4 +74,8 @@ public class TripService {
 
         return tripRepository.save(existingTrip);
     }
+
+    public void deleteTrip(Long id) {
+        tripRepository.deleteById(id);
+    }
 }

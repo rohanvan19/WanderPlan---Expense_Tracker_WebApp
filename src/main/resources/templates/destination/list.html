@@ -5,7 +5,7 @@
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-<h2>Destinations</h2>
+<h2>📍 Destinations</h2>
 <a th:href="@{/destinations/new}" class="btn">➕ Add Destination</a>
 <table>
     <thead>
@@ -13,6 +13,7 @@
         <th>ID</th>
         <th>City</th>
         <th>Country</th>
+        <th>Best Time</th>
         <th>User</th>
         <th>Actions</th>
     </tr>
@@ -22,6 +23,7 @@
         <td th:text="${destination.id}"></td>
         <td th:text="${destination.name}"></td>
         <td th:text="${destination.country}"></td>
+        <td th:text="${destination.bestTimeToVisit}"></td>
         <td th:text="${destination.user != null ? destination.user.name : 'N/A'}"></td>
         <td>
             <a th:href="@{/destinations/edit/{id}(id=${destination.id})}" class="btn">✏️ Edit</a> |
@@ -30,5 +32,10 @@
     </tr>
     </tbody>
 </table>
+
+<div class="nav-buttons">
+    <a th:href="@{/}" class="home-btn">🏠 Homepage</a>
+</div>
+
 </body>
 </html>

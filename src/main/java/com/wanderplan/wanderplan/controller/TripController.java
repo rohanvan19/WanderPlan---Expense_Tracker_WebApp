@@ -50,9 +50,9 @@ public class TripController {
         return "redirect:/trips";
     }
 
-//    @GetMapping("/delete/{id}")
-//    public String deleteTrip(@PathVariable Long id) {
-//        tripService.deleteTrip(id);
-//        return "redirect:/trips";
-//    }
+    @GetMapping("/delete/{id}")
+    public String deleteTrip(@PathVariable Long id) {
+        tripService.deleteTrip(id);
+        return "redirect:/trips";
+    }
 }

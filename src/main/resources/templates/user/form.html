@@ -45,10 +45,18 @@
         <input type="email" th:field="*{email}" required />
     </label><br/>
 
+    <label>Password:
+        <input type="password" th:field="*{password}" required />
+    </label><br/>
+
     <button type="submit">Update</button>
 </form>
 
-<a th:href="@{/users}">Back to Users</a>
+<div class="nav-buttons">
+    <a th:href="@{/users}" class="back-btn">← Back to Users</a>
+    <a th:href="@{/}" class="home-btn">🏠 Homepage</a>
+</div>
+
 </body>
 </html>
 
